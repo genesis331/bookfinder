@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const NotFoundPage = () => {
+const BookPage = () => {
   return (
     <main className="min-h-screen bg-light-background dark:bg-dark-background text-black dark:text-white">
       
@@ -8,6 +8,6 @@ const NotFoundPage = () => {
   )
 }
 
-export default NotFoundPage
+export default BookPage
 
-export const Head = () => <title></title>
+export const Head = () => <title>BookFinder</title>
