@@ -5,10 +5,14 @@ import logowhite from "../images/logo-white.png"
 const HeaderComponent = () => {
   return (
     <div className="pt-12">
-      <div className="hidden md:flex">
+      <div className="hidden md:flex pb-10">
         <div className="flex grow items-center">
-          <img alt="logo" src={logodark} className="h-10 inline-block dark:hidden"/>
-          <img alt="logo" src={logowhite} className="h-10 hidden dark:inline-block"/>
+          <a href="/">
+            <img alt="logo" src={logodark} className="h-10 inline-block dark:hidden"/>
+          </a>
+          <a href="/">
+            <img alt="logo" src={logowhite} className="h-10 hidden dark:inline-block"/>
+          </a>
         </div>
         <div className="grow">
           <div class="hidden md:flex justify-end align-middle">
@@ -39,9 +43,6 @@ const HeaderComponent = () => {
             </button>
           </div>
         </div>
-      </div>
-      <div>
-        
       </div>
     </div>
   )
