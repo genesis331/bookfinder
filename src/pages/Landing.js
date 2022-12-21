@@ -2,9 +2,12 @@ import {Button, Input} from "@douyinfe/semi-ui";
 import { IconSearch } from '@douyinfe/semi-icons';
 import logoDark from "../assets/logo-dark.png";
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 function Landing() {
     let navigate = useNavigate();
+    const [inputValue, setInputValue] = useState("");
+
     return (
         <div className="h-full">
             <div className="text-center inline-block absolute w-full"
@@ -17,11 +20,11 @@ function Landing() {
                 <br/>
                 <br/>
                 <div className="w-2/5 md:inline-block hidden">
-                    <Input showClear placeholder='Enter book number or ISBN' size='large' suffix={<Button icon={<IconSearch />} size="large" aria-label="Search" onClick={() => {navigate(`/search`);}} />}></Input>
+                    <Input value={inputValue} onChange={(value) => setInputValue(value)} showClear placeholder='Enter book number or ISBN' size='large' suffix={<Button icon={<IconSearch />} size="large" aria-label="Search" onClick={() => {navigate(`/search?q=${inputValue}`);}} />}></Input>
                 </div>
                 <div className="w-9/12 inline-block md:hidden">
-                    <Input showClear placeholder='Enter book number or ISBN' size='large' className="mb-3"></Input>
-                    <Button icon={<IconSearch />} size="large" block aria-label="Search" onClick={() => {navigate(`/search`);}}>Search</Button>
+                    <Input showClear placeholder='Enter book number or ISBN' size='large' className="mb-3" value={inputValue} onChange={(value) => setInputValue(value)}></Input>
+                    <Button icon={<IconSearch />} size="large" block aria-label="Search" onClick={() => {navigate(`/search?q=${inputValue}`);}}>Search</Button>
                 </div>
                 <br/>
             </div>
