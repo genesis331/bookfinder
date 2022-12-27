@@ -31,7 +31,7 @@ function BookDetails() {
         <div className="h-full text-center">
             <div className="w-11/12 inline-block h-full px-8 text-left">
                 <div className="flex h-full flex-col md:flex-row">
-                    <div className="md:w-5/12 text-center">
+                    <div className="md:w-5/12 text-center md:pt-10">
                         <img className="inline-block" src={bookData ? `${apiUrl}/imgproxy?url=https://libgen.is/covers/${bookData.coverurl}` : ""} alt="test cover" />
                     </div>
                     <div className="md:pl-20 md:pr-10 py-10 flex flex-col flex-1 text-center md:text-left">
