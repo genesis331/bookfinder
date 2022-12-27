@@ -10,9 +10,14 @@ import PageNotFound from "./pages/PageNotFound";
 
 const {Header, Footer, Content} = Layout;
 const { Text } = Typography;
+
 function App() {
     let navigate = useNavigate();
     const [inputValue, setInputValue] = useState("");
+
+    const setHeaderSearchValue = (value) => {
+        setInputValue(value);
+    }
 
     return (
         <Layout className='h-screen'>
@@ -39,7 +44,7 @@ function App() {
             <Content>
                 <Routes>
                     <Route path="/" element={<Landing/>}/>
-                    <Route path="/search" element={<SearchResults/>}/>
+                    <Route path="/search" element={<SearchResults modifyHeaderValue={setHeaderSearchValue}/>}/>
                     <Route path="/book" element={<BookDetails/>}/>
                     <Route path="*" element={<PageNotFound/>}/>
                 </Routes>
