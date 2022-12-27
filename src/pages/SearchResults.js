@@ -1,7 +1,8 @@
-import React, {useEffect, useState, useMemo} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import {Button, Col, Row, Typography} from "@douyinfe/semi-ui";
 import {useLocation, useNavigate} from "react-router-dom";
 
+const apiUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://bookfinderapi.zixucheah331.ml"
 const { Title, Text } = Typography;
 
 const useQuery = () => {
@@ -9,13 +10,13 @@ const useQuery = () => {
     return useMemo(() => new URLSearchParams(search), [search]);
 }
 
-const generateCard = (navigate, data) => {
+const generateCard = async (navigate, data) => {
     return <div className="flex flex-col md:flex-row text-center md:text-left">
         <div className="text-center md:w-1/3">
             <div className="flex flex-col w-full">
                 <div></div>
                 <div className="flex-1">
-                    <img className="max-h-72 inline-block" src={`https://libgen.is/covers/${data.coverurl}`} alt="test cover"/>
+                    <img className="max-h-72 inline-block" src={`${apiUrl}/imgproxy?url=https://libgen.is/covers/${data.coverurl}`} alt="test cover"/>
                 </div>
                 <div></div>
             </div>
@@ -48,16 +49,16 @@ function SearchResults() {
         setSearchQuery(query.get("q"));
         async function fetchData() {
             if (query.get("q")) {
-                let results = await fetch(`https://bookfinderapi.zixucheah331.ml/search?q=${query.get("q")}`);
+                let results = await fetch(`${apiUrl}/search?q=${query.get("q")}`);
                 results = await results.json();
                 return results;
             }
         }
-        fetchData().then((results) => {
+        fetchData().then(async (results) => {
             console.log(results);
             let cards = [];
             for (let i = 0; i < results.length; i++) {
-                cards.push(<Col span={12}>{generateCard(navigate, results[i])}</Col>);
+                cards.push(<Col span={12}>{await generateCard(navigate, results[i])}</Col>);
             }
             setResultCards(cards);
         });
