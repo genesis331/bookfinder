@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from "react";
 import {Button, Col, Row, Typography} from "@douyinfe/semi-ui";
 import {useLocation, useNavigate} from "react-router-dom";
 
-const apiUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://bookfinderapi.zixucheah331.ml"
+const apiUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://bookfinderapi.zixucheah331.ml";
 const { Title, Text } = Typography;
 
 const useQuery = () => {
@@ -12,7 +12,7 @@ const useQuery = () => {
 
 const generateCard = async (navigate, data) => {
     return <div className="flex flex-col md:flex-row text-center md:text-left">
-        <div className="text-center md:w-1/3">
+        <div className="text-center md:w-1/3 flex flex-col justify-center">
             <div className="flex flex-col w-full">
                 <div></div>
                 <div className="flex-1">
@@ -30,7 +30,7 @@ const generateCard = async (navigate, data) => {
                     <Title heading={4}>{data.title}</Title>
                 </div>
                 <div>
-                    <Button onClick={() => {navigate(`/`);}}>
+                    <Button onClick={() => {navigate(`/book?id=${data.md5}`);}}>
                         Read More
                     </Button>
                 </div>
@@ -55,7 +55,6 @@ function SearchResults() {
             }
         }
         fetchData().then(async (results) => {
-            console.log(results);
             let cards = [];
             for (let i = 0; i < results.length; i++) {
                 cards.push(<Col span={12}>{await generateCard(navigate, results[i])}</Col>);
