@@ -24,7 +24,6 @@ function BookDetails() {
             }
         }
         fetchData().then(async (results) => {
-            console.log(results[0]);
             setBookData(results[0]);
         });
     }, [query, apiUrl]);
