@@ -30,7 +30,7 @@ const generateCard = async (navigate, data) => {
                     <Title heading={4}>{data.title}</Title>
                 </div>
                 <div>
-                    <Button onClick={() => {navigate(`/book`);}}>
+                    <Button onClick={() => {navigate(`/`);}}>
                         Read More
                     </Button>
                 </div>

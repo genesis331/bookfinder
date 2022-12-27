@@ -1,3 +1,4 @@
+import {useState} from "react";
 import logoDark from "./assets/logo-dark.png";
 import {Button, Input, Layout, Typography} from "@douyinfe/semi-ui";
 import {IconSearch} from "@douyinfe/semi-icons";
@@ -11,6 +12,8 @@ const {Header, Footer, Content} = Layout;
 const { Text } = Typography;
 function App() {
     let navigate = useNavigate();
+    const [inputValue, setInputValue] = useState("");
+
     return (
         <Layout className='h-screen'>
             <Header className="pt-12 pb-10 text-center">
@@ -23,11 +26,11 @@ function App() {
                                 </Link>
                             </div>
                             <div className="w-4/12 md:inline-block hidden">
-                                <Input showClear size='large' suffix={<Button icon={<IconSearch />} size="large" aria-label="Search" onClick={() => {navigate(`/search`);}} />}></Input>
+                                <Input showClear size='large' value={inputValue} onChange={(value) => setInputValue(value)} suffix={<Button icon={<IconSearch />} size="large" aria-label="Search" onClick={() => {if (inputValue !== "") {navigate(`/search?q=${inputValue}`);}}} />}></Input>
                             </div>
                             <div className="inline-block md:hidden pt-7">
-                                <Input showClear placeholder='Enter book number or ISBN' size='large' className="mb-3"></Input>
-                                <Button icon={<IconSearch />} size="large" block aria-label="Search" onClick={() => {navigate(`/search`);}}>Search</Button>
+                                <Input showClear placeholder='Enter book number or ISBN' size='large' className="mb-3" value={inputValue} onChange={(value) => setInputValue(value)}></Input>
+                                <Button icon={<IconSearch />} size="large" block aria-label="Search" onClick={() => {if (inputValue !== "") {navigate(`/search?q=${inputValue}`);}}}>Search</Button>
                             </div>
                         </div>
                     </div> : <div></div>

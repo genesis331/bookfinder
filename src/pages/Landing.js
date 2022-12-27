@@ -20,11 +20,11 @@ function Landing() {
                 <br/>
                 <br/>
                 <div className="w-2/5 md:inline-block hidden">
-                    <Input value={inputValue} onChange={(value) => setInputValue(value)} showClear placeholder='Enter book number or ISBN' size='large' suffix={<Button icon={<IconSearch />} size="large" aria-label="Search" onClick={() => {navigate(`/search?q=${inputValue}`);}} />}></Input>
+                    <Input value={inputValue} onChange={(value) => setInputValue(value)} showClear placeholder='Enter book number or ISBN' size='large' suffix={<Button icon={<IconSearch />} size="large" aria-label="Search" onClick={() => {if (inputValue !== "") {navigate(`/search?q=${inputValue}`);}}} />}></Input>
                 </div>
                 <div className="w-9/12 inline-block md:hidden">
                     <Input showClear placeholder='Enter book number or ISBN' size='large' className="mb-3" value={inputValue} onChange={(value) => setInputValue(value)}></Input>
-                    <Button icon={<IconSearch />} size="large" block aria-label="Search" onClick={() => {navigate(`/search?q=${inputValue}`);}}>Search</Button>
+                    <Button icon={<IconSearch />} size="large" block aria-label="Search" onClick={() => {if (inputValue !== "") {navigate(`/search?q=${inputValue}`);}}}>Search</Button>
                 </div>
                 <br/>
             </div>
