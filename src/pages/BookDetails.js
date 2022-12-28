@@ -49,7 +49,7 @@ function BookDetails() {
                                 <Divider margin='12px'/>
                             </div>
                             <div>
-                                {bookData ? <Paragraph>bookData.descr</Paragraph> : <Skeleton.Paragraph />}
+                                {bookData ? <Paragraph>{bookData.descr}</Paragraph> : <Skeleton.Paragraph />}
                             </div>
                             <div className="py-3"></div>
                         </div>
