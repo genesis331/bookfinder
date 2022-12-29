@@ -1,5 +1,5 @@
 import React, {useEffect, useMemo, useState} from "react";
-import {Button, Divider, SplitButtonGroup, Typography, Skeleton} from "@douyinfe/semi-ui";
+import {Button, Divider, Typography, Skeleton} from "@douyinfe/semi-ui";
 import {useLocation} from "react-router-dom";
 
 const useQuery = () => {

@@ -46,6 +46,7 @@ function SearchResults({ modifyHeaderValue }) {
     const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
+        setResultCards(null);
         setSearchQuery(query.get("q"));
         modifyHeaderValue(query.get("q"));
         async function fetchData() {
