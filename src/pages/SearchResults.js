@@ -12,7 +12,7 @@ const useQuery = () => {
 
 const generateCard = (navigate, data, skeleton) => {
     return <div className="flex flex-col md:flex-row text-center md:text-left">
-        <div className="text-center md:w-1/3 flex flex-col justify-center">
+        <div className="text-center md:w-1/3 flex flex-col justify-center h-60 md:h-72">
             <div className="flex flex-col w-full">
                 <div></div>
                 <div className="flex-1">
@@ -22,14 +22,14 @@ const generateCard = (navigate, data, skeleton) => {
             </div>
         </div>
         <div className="h-72 flex-1">
-            <div className="md:px-7 py-7 h-full flex flex-col">
+            <div className="md:px-7 py-3 md:py-7 h-full flex flex-col">
                 <div>
                     {skeleton ? <Skeleton /> : <Text>{data.author}</Text>}
                 </div>
-                <div className="flex-1 font-bold">
-                    {skeleton ? <Skeleton.Paragraph /> : <Title heading={4}>{data.title}</Title>}
+                <div className="flex-1 font-bold overflow-hidden">
+                    {skeleton ? <Skeleton.Paragraph /> : <Title heading={4} className="inline-block overflow-ellipsis" style={{height: "calc(100%)"}}>{data.title}</Title>}
                 </div>
-                <div>
+                <div className="mt-5">
                     {skeleton ? <Skeleton.Button /> : <Button onClick={() => {navigate(`/book?id=${data.md5}`);}}>
                         Read More
                     </Button>}
@@ -73,7 +73,7 @@ function SearchResults({ modifyHeaderValue }) {
                         <Text>Search result(s) for </Text><span><Text strong>{searchQuery}</Text></span><Text>:</Text>
                     </div>
                     <div>
-                        <Row gutter={[64, 64]}>
+                        <Row gutter={[48, 48]}>
                             {resultCards ? resultCards : <>
                                 <Col span={12}>{generateCard(navigate, {}, true)}</Col>
                                 <Col span={12}>{generateCard(navigate, {}, true)}</Col>
