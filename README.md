@@ -11,6 +11,6 @@ This website is very user-friendly, the steps for finding books on this website 
 
 1. Click on [this link](https://bookfinder.zixucheah331.ml/) and the Search Page opens up. 
     * You may enter the name of the book (or some keywords on the name of book).
-    * You can also search with the ISBN of the book (applicable for both ISBN-13 or ISBN-10).
+    * You can also search with the ISBN-13 of the book.
 2. When the result loads, click on the [**`Read More`**]() button to explore the descriptions and more details on the book. 
     * You may also download a copy of the book in that page.
