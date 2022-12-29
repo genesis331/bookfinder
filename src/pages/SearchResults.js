@@ -23,10 +23,10 @@ const generateCard = (navigate, data, skeleton) => {
         </div>
         <div className="h-72 flex-1">
             <div className="md:px-7 py-3 md:py-7 h-full flex flex-col">
-                <div className="truncate">
+                <div>
                     {skeleton ? <Skeleton /> : <Text>{data.author}</Text>}
                 </div>
-                <div className="flex-1 font-bold overflow-hidden text-ellipsis">
+                <div className="flex-1 font-bold overflow-hidden>
                     {skeleton ? <Skeleton.Paragraph /> : <Title heading={4} className="inline-block overflow-ellipsis" style={{height: "calc(100%)"}}>{data.title}</Title>}
                 </div>
                 <div className="mt-5">
