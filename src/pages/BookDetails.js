@@ -9,7 +9,7 @@ const useQuery = () => {
 
 function BookDetails() {
     let query = useQuery();
-    const apiUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://bookfinderapi.zixucheah331.ml";
+    const apiUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000" : process.env.API_URL;
     const { Paragraph, Title, Text } = Typography;
 
     const [bookData, setBookData] = useState(null);
