@@ -51,7 +51,7 @@ function SearchResults({ modifyHeaderValue }) {
         modifyHeaderValue(query.get("q"));
         async function fetchData() {
             if (query.get("q")) {
-                let results = await fetch(`${apiUrl}/search?q=${query.get("q")}`);
+                let results = await fetch(`${apiUrl}/search?q=${query.get("q")}`, {mode: "cors"});
                 console.log(results);
                 results = await results.json();
                 return results;
