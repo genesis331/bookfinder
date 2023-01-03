@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from "react";
 import {Button, Col, Row, Typography, Skeleton} from "@douyinfe/semi-ui";
 import {useLocation, useNavigate} from "react-router-dom";
 
-const apiUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000" : process.env.API_URL;
+const apiUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://bookfinderapi.zixucheah331.ml";
 const { Title, Text } = Typography;
 
 const useQuery = () => {
