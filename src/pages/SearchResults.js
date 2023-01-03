@@ -52,6 +52,7 @@ function SearchResults({ modifyHeaderValue }) {
         async function fetchData() {
             if (query.get("q")) {
                 let results = await fetch(`${apiUrl}/search?q=${query.get("q")}`);
+                console.log(results);
                 results = await results.json();
                 return results;
             }
